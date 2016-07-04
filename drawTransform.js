@@ -6,7 +6,8 @@ function draw() {
   if (canvas.getContext){
     let ctx = canvas.getContext('2d');
 
-    rotate(ctx);
+    scale(ctx);
+    //rotate(ctx);
     //translate(ctx);
     //saveRestoreDraw(ctx);
   }
@@ -73,6 +74,19 @@ function rotate(ctx){
 }
 
 
+function scale(ctx){
+
+  ctx.save();
+  ctx.scale(10, 3);
+  ctx.fillRect(1, 10, 10, 10);
+  ctx.restore();
+
+  // mirror horizontally
+  ctx.scale(-1 , 1);
+  ctx.font = "48px serif";
+  ctx.fillText("MDN", -135, 120);
+
+}
 
 window.onload = function() {
   draw();
